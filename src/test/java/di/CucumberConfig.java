@@ -7,14 +7,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
-
 
 public class CucumberConfig {
 
     @Bean(destroyMethod = "quit")
-    @Scope(SCOPE_CUCUMBER_GLUE)
+    @Scope(value = SCOPE_CUCUMBER_GLUE, proxyMode = ScopedProxyMode.TARGET_CLASS)
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
     public WebDriver getChromeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -22,7 +22,7 @@ public class CucumberConfig {
     }
 
     @Bean(destroyMethod = "quit")
-    @Scope(SCOPE_CUCUMBER_GLUE)
+    @Scope(value = SCOPE_CUCUMBER_GLUE, proxyMode = ScopedProxyMode.TARGET_CLASS)
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver getFirefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
