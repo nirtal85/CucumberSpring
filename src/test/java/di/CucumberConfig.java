@@ -21,6 +21,7 @@ import java.io.IOException;
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 import static org.monte.media.FormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
+import static utilities.Location.VIDEO_PATH;
 
 public class CucumberConfig {
 
@@ -52,7 +53,8 @@ public class CucumberConfig {
      *
      * @return screen recorder
      */
-    @Bean
+    @Bean(initMethod = "start", destroyMethod = "stop")
+    @Scope(value = SCOPE_CUCUMBER_GLUE)
     public ScreenRecorder screenRecorder() throws IOException, AWTException {
         // set the graphics configuration
         GraphicsConfiguration gc = GraphicsEnvironment
@@ -69,6 +71,6 @@ public class CucumberConfig {
                         KeyFrameIntervalKey, 15 * 60),
                 new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, "black", FrameRateKey, Rational.valueOf(30)),
                 null,
-                new File(System.getProperty("user.dir") + "/target" + "/video"));
+                new File(VIDEO_PATH));
     }
 }
