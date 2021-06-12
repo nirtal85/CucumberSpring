@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 
 import java.awt.*;
 import java.io.File;
@@ -26,7 +25,7 @@ import static utilities.Location.VIDEO_PATH;
 public class CucumberConfig {
 
     @Bean(destroyMethod = "quit")
-    @Scope(value = SCOPE_CUCUMBER_GLUE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+    @Scope(value = SCOPE_CUCUMBER_GLUE)
     @ConditionalOnMissingBean
     public WebDriver getChromeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -34,7 +33,7 @@ public class CucumberConfig {
     }
 
     @Bean(destroyMethod = "quit")
-    @Scope(value = SCOPE_CUCUMBER_GLUE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+    @Scope(value = SCOPE_CUCUMBER_GLUE)
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver getFirefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
