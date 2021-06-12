@@ -41,20 +41,20 @@ public class CucumberConfig {
     }
 
     /**
-     *         initialize the screen recorder:
-     *         default graphics configuration
-     *         full screen recording
-     *         record in AVI format
-     *         15 frames per second
-     *         black mouse pointer
-     *         no audio
-     *         save capture to predefined location
+     * initialize the screen recorder:
+     * default graphics configuration
+     * full screen recording
+     * record in AVI format
+     * 15 frames per second
+     * black mouse pointer
+     * no audio
+     * save capture to predefined location
+     *
      * @return screen recorder
      */
     @Bean
     public ScreenRecorder screenRecorder() throws IOException, AWTException {
         // set the graphics configuration
-        System.setProperty("java.awt.headless","false");
         GraphicsConfiguration gc = GraphicsEnvironment
                 .getLocalGraphicsEnvironment()
                 .getDefaultScreenDevice()
