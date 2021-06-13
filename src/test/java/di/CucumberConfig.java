@@ -7,10 +7,13 @@ import org.monte.media.math.Rational;
 import org.monte.screenrecorder.ScreenRecorder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 import java.awt.*;
@@ -23,6 +26,9 @@ import static org.monte.media.VideoFormatKeys.*;
 import static utilities.Location.VIDEO_PATH;
 
 public class CucumberConfig {
+    @Autowired
+    @Lazy
+    ChromeDriver driver;
 
     @Bean(destroyMethod = "quit")
     @Scope(value = SCOPE_CUCUMBER_GLUE)
@@ -30,6 +36,13 @@ public class CucumberConfig {
     public WebDriver getChromeDriver() {
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
+    }
+
+    @Bean(initMethod = "createSession", destroyMethod = "close")
+    @ConditionalOnProperty(name = "browser", havingValue = "chrome")
+    @Scope(value = SCOPE_CUCUMBER_GLUE)
+    public DevTools getDevTools() {
+        return driver.getDevTools();
     }
 
     @Bean(destroyMethod = "quit")

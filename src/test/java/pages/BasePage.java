@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 public abstract class BasePage {
 
     @Autowired
-    private WebDriver driver;
+    protected WebDriver driver;
 
     @PostConstruct
     public void initPage() {
