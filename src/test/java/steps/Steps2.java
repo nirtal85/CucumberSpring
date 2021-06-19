@@ -1,4 +1,4 @@
-package stpes;
+package steps;
 
 import io.cucumber.java.en.Then;
 

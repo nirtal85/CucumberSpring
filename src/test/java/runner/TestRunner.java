@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "classpath:features",
         tags = "not @Ignore",
-        glue = "cucumberSpring.steps"
+        glue = "steps"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

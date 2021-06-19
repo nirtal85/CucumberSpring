@@ -1,4 +1,4 @@
-package stpes;
+package steps;
 
 import di.CucumberConfig;
 import io.cucumber.spring.CucumberContextConfiguration;
