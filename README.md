@@ -1,0 +1,2 @@
+mvn exec:java -Dexec.classpathScope=test -Dexec.mainClass=io.cucumber.core.cli.Main -Dcucumber.features="classpath:
+features" -Dcucumber.glue="steps" -Dcucumber.filter.tags="not @Ignore" -Djava.awt.headless=false
