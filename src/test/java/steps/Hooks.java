@@ -11,6 +11,7 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v91.network.Network;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import pages.MyAnnotation;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -45,6 +46,7 @@ public class Hooks extends BaseSteps {
     }
 
     @Before
+    @MyAnnotation("ABC")
     public void enableNetwork() {
         System.out.println(browser);
         if (browser.equals("chrome")) {
