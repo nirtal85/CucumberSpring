@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import pages.SearchPage;
 
-public class MyStepdefs extends BaseSteps {
+public class MyStepdefs {
 
     @Value("${app.url}")
     private String appUrl;

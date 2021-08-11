@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component;
 @Getter
 public class SearchPage extends BasePage {
 
-    @FindBy(css = "q")
+    @FindBy(css = "[name=q]")
     private WebElement searchBar;
 }
