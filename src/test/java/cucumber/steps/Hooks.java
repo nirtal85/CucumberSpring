@@ -1,5 +1,6 @@
-package steps;
+package cucumber.steps;
 
+import cucumber.annotations.MyAnnotation;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
@@ -12,14 +13,13 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v95.network.Network;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import pages.MyAnnotation;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Optional;
 
-import static utilities.Location.VIDEO_PATH;
+import static cucumber.utilities.Location.VIDEO_PATH;
 
 public class Hooks {
     @Autowired

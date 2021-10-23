@@ -1,4 +1,4 @@
-package di;
+package cucumber.di;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.monte.media.Format;
@@ -20,10 +20,10 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+import static cucumber.utilities.Location.VIDEO_PATH;
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 import static org.monte.media.FormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
-import static utilities.Location.VIDEO_PATH;
 
 @Configuration
 public class CucumberConfig {

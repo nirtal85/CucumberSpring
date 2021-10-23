@@ -1,11 +1,11 @@
-package di;
+package cucumber.di;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@ComponentScan({"di", "pages", "steps", "utilities"})
 @EnableAspectJAutoProxy
+@SpringBootApplication(scanBasePackages = "cucumber")
 public class SpringDemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringDemoApplication.class, args);

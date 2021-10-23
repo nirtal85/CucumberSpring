@@ -1,11 +1,11 @@
-package utilities;
+package cucumber.utilities;
 
+import cucumber.annotations.MyAnnotation;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.Configuration;
-import pages.MyAnnotation;
 
 @Aspect
 @Configuration
@@ -33,7 +33,7 @@ public class Aspects {
      * @return
      * @throws Throwable
      */
-    @Around("execution(* steps.Hooks.enableNetwork(..))")
+    @Around("execution(* cucumber.steps.Hooks.enableNetwork(..))")
     public Object method(ProceedingJoinPoint jp) throws Throwable {
         MyAnnotation myAnnotation = ((MethodSignature) jp.getSignature()).getMethod().getAnnotation(MyAnnotation.class);
         String value = myAnnotation.value();

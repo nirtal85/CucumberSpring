@@ -1,4 +1,4 @@
-package runner;
+package cucumber.runner;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "classpath:features",
         tags = "not @Ignore",
-        glue = "steps"
+        glue = "cucumber/steps"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

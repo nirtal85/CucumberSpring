@@ -3,7 +3,7 @@
 <suite name="Testing Google Apps">
     <test name="Regression">
         <classes>
-            <class name="runner.TestRunner"/>
+            <class name="cucumber.runner.TestRunner"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

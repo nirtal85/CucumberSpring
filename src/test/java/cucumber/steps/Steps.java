@@ -1,6 +1,7 @@
-package steps;
+package cucumber.steps;
 
-import di.SpringDemoApplication;
+import cucumber.di.SpringDemoApplication;
+import cucumber.pages.SearchPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
-import pages.SearchPage;
 
 
 @SpringBootTest(classes = {SpringDemoApplication.class})

@@ -1,4 +1,4 @@
-package utilities;
+package cucumber.utilities;
 
 import lombok.experimental.UtilityClass;
 
