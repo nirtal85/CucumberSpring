@@ -9,7 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v91.network.Network;
+import org.openqa.selenium.devtools.v95.network.Network;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import pages.MyAnnotation;
@@ -21,22 +21,18 @@ import java.util.Optional;
 
 import static utilities.Location.VIDEO_PATH;
 
-public class Hooks extends BaseSteps {
-
+public class Hooks {
     @Autowired
     private WebDriver driver;
-
+    @Autowired
+    private ScreenRecorder screenRecorder;
     /**
      * @see <a href="https://reflectoring.io/dont-use-spring-profile-annotation/">https://reflectoring.io/dont-use-spring-profile-annotation/</a>
      */
     @Value("${browser}")
     String browser;
-
     @Autowired(required = false)
     private DevTools devTools;
-
-    @Autowired
-    private ScreenRecorder screenRecorder;
 
     @BeforeAll
     public static void beforeAll() {
@@ -50,7 +46,6 @@ public class Hooks extends BaseSteps {
     @Before
     @MyAnnotation("ABC")
     public void enableNetwork() {
-        System.out.println(browser);
         if (browser.equals("chrome")) {
             devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
             devTools.addListener(Network.requestWillBeSent(),

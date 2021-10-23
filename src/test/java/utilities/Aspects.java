@@ -31,7 +31,7 @@ public class Aspects {
      * @return
      * @throws Throwable
      */
-    @Around("execution(* steps.Hooks.enableNetwork(..))")
+    @Around("execution(* steps.Steps.enableNetwork(..))")
     public Object method(ProceedingJoinPoint jp) throws Throwable {
         MyAnnotation myAnnotation = ((MethodSignature) jp.getSignature()).getMethod().getAnnotation(MyAnnotation.class);
         String value = myAnnotation.value();

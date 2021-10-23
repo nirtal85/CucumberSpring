@@ -8,7 +8,6 @@ import org.monte.screenrecorder.ScreenRecorder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -34,8 +33,7 @@ public class CucumberConfig {
     @Scope(value = SCOPE_CUCUMBER_GLUE)
     @ConditionalOnMissingBean
     public WebDriver getChromeDriver() {
-        WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        return WebDriverManager.chromedriver().create();
     }
 
     @Bean(initMethod = "createSession", destroyMethod = "close")
@@ -49,8 +47,7 @@ public class CucumberConfig {
     @Scope(value = SCOPE_CUCUMBER_GLUE)
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver getFirefoxDriver() {
-        WebDriverManager.firefoxdriver().setup();
-        return new FirefoxDriver();
+        return WebDriverManager.firefoxdriver().create();
     }
 
     /**
