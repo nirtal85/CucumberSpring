@@ -35,12 +35,8 @@ public class Hooks {
     private DevTools devTools;
 
     @BeforeAll
-    public static void beforeAll() {
-        try {
-            Files.createDirectories(Paths.get(VIDEO_PATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void beforeAll() throws IOException {
+        Files.createDirectories(Paths.get(VIDEO_PATH));
     }
 
     @Before
