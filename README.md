@@ -1,2 +1,1 @@
-mvn exec:java -Dexec.classpathScope=test -Dexec.mainClass=io.cucumber.core.cli.Main -Dcucumber.features="classpath:features" -Dcucumber.glue="steps" -Dcucumber.filter.tags="not @Ignore" -Djava.awt.headless=false -Dcucumber.plugin="io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm" -Dallure.results.directory="allure-results"
--Dexec.args="-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+example cucumber spring project
