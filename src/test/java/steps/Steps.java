@@ -34,7 +34,6 @@ public class Steps {
     @Autowired(required = false)
     private DevTools devTools;
 
-
     @Given("I navigate to google")
     public void iNavigateToGoogle() {
         driver.navigate().to(appUrl);
