@@ -1,6 +1,6 @@
 package steps;
 
-import di.CucumberConfig;
+import di.SpringDemoApplication;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,13 +10,11 @@ import org.openqa.selenium.devtools.DevTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.testng.Assert;
 import pages.SearchPage;
-import utilities.Aspects;
 
-@SpringBootTest(classes = {CucumberConfig.class, SearchPage.class, Aspects.class})
-@EnableAspectJAutoProxy
+
+@SpringBootTest(classes = {SpringDemoApplication.class})
 @CucumberContextConfiguration
 public class Steps {
 
