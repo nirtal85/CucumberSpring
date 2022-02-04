@@ -13,8 +13,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <properties>
-        <selenium.version>4.0.0</selenium.version>
-        <cucumber.version>7.0.0</cucumber.version>
+        <selenium.version>4.1.1</selenium.version>
+        <cucumber.version>7.2.3</cucumber.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>

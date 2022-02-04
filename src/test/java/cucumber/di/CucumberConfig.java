@@ -27,6 +27,7 @@ import static org.monte.media.VideoFormatKeys.*;
 
 @Configuration
 public class CucumberConfig {
+
     @Autowired
     @Lazy
     ChromeDriver driver;
